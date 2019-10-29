@@ -34,7 +34,7 @@ POST /accounts/1/transfer/500/to/2                  避免动词
 POST /transaction
     from=1&to=2&amount=500.00
 
-www.example.com/app/1.0/
+www.example.com/app/1.0/                            版本
 www.example.com/app/
     HEADER verson=1.0    
 ```
