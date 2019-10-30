@@ -1,4 +1,4 @@
-package com.ljh.myioc.human;
+package com.ljh.my.ioc.human;
 
 /**
  * Human

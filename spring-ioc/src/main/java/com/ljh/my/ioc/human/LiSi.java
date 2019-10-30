@@ -1,6 +1,6 @@
-package com.ljh.myioc.human;
+package com.ljh.my.ioc.human;
 
-import com.ljh.myioc.car.Car;
+import com.ljh.my.ioc.car.Car;
 
 /**
  * LiSi

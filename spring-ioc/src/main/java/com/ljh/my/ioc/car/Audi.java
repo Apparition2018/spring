@@ -1,4 +1,4 @@
-package com.ljh.myioc.car;
+package com.ljh.my.ioc.car;
 
 /**
  * Audi

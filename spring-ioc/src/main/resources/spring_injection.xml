@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="anotherBean" class="com.ljh.injection.bean.AnotherBean"/>
+
+    <bean id="bean" class="com.ljh.injection.bean.Bean">
+        <!-- 通过构造方法注入 Bean -->
+        <!-- index, name, type 任意组合能表示哪一个参数即可 -->
+        <constructor-arg index="0" name="anotherBean" type="com.ljh.injection.bean.AnotherBean" ref="anotherBean"/>
+        <constructor-arg index="1" name="string" type="java.lang.String" value="aaaaa"/>
+
+        <!-- 通过 setter 方法注入 Bean -->
+        <!-- <property name="anotherBean2" ref="anotherBean"/> -->
+        <property name="anotherBean2">
+            <!-- 注入时创建内部 Bean -->
+            <bean class="com.ljh.injection.bean.AnotherBean"/>
+        </property>
+        <property name="string2" value="bbbbb"/>
+
+        <!-- 集合注入 -->
+        <property name="stringList">
+            <list>
+                <value>aaaaa</value>
+                <value>bbbbb</value>
+            </list>
+        </property>
+        <property name="anotherBeanList">
+            <list>
+                <ref bean="anotherBean"/>
+                <ref bean="anotherBean"/>
+            </list>
+        </property>
+        <property name="stringSet">
+            <set>
+                <value>aaaaa</value>
+                <value>bbbbb</value>
+            </set>
+        </property>
+        <property name="anotherBeanSet">
+            <set>
+                <ref bean="anotherBean"/>
+                <ref bean="anotherBean"/>
+            </set>
+        </property>
+        <property name="stringMap">
+            <map>
+                <entry key="ccccc" value="ddddd"/>
+                <entry key="eeeee" value="fffff"/>
+            </map>
+        </property>
+        <property name="anotherBeanMap">
+            <map>
+                <entry key-ref="anotherBean" value-ref="anotherBean"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="ggggg">hhhhh</prop>
+            </props>
+        </property>
+
+        <!-- null 值注入 -->
+        <property name="anotherBean3">
+            <null/>
+        </property>
+    </bean>
+
+    <!-- 这是上面代码的简便写法 -->
+    <!--
+    <bean id="bean" class="com.ljh.injection.bean.Bean"
+          c:anotherBean-ref="anotherBean" c:string="ccccc"
+          p:anotherBean-ref="anotherBean" p:string2="ddddd"/>
+    -->
+</beans>
+
+

@@ -1,11 +1,11 @@
 package com.ljh;
 
-import com.ljh.myioc.IoCContainer;
-import com.ljh.myioc.car.Audi;
-import com.ljh.myioc.car.Buick;
-import com.ljh.myioc.human.Human;
-import com.ljh.myioc.human.LiSi;
-import com.ljh.myioc.human.ZhangShan;
+import com.ljh.my.ioc.IoCContainer;
+import com.ljh.my.ioc.car.Audi;
+import com.ljh.my.ioc.car.Buick;
+import com.ljh.my.ioc.human.Human;
+import com.ljh.my.ioc.human.LiSi;
+import com.ljh.my.ioc.human.ZhangShan;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.ljh.myioc;
+package com.ljh.my.ioc;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
