@@ -6,19 +6,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="anotherBean" class="com.ljh.injection.bean.AnotherBean"/>
+    <bean id="anotherBean" class="com.ljh.xml.injection.AnotherBean"/>
 
-    <bean id="bean" class="com.ljh.injection.bean.Bean">
+    <bean id="bean1" class="com.ljh.xml.injection.Bean">
         <!-- 通过构造方法注入 Bean -->
         <!-- index, name, type 任意组合能表示哪一个参数即可 -->
-        <constructor-arg index="0" name="anotherBean" type="com.ljh.injection.bean.AnotherBean" ref="anotherBean"/>
+        <constructor-arg index="0" name="anotherBean" type="com.ljh.xml.injection.AnotherBean" ref="anotherBean"/>
         <constructor-arg index="1" name="string" type="java.lang.String" value="aaaaa"/>
 
         <!-- 通过 setter 方法注入 Bean -->
         <!-- <property name="anotherBean2" ref="anotherBean"/> -->
         <property name="anotherBean2">
             <!-- 注入时创建内部 Bean -->
-            <bean class="com.ljh.injection.bean.AnotherBean"/>
+            <bean class="com.ljh.xml.injection.AnotherBean"/>
         </property>
         <property name="string2" value="bbbbb"/>
 
@@ -72,7 +72,7 @@
 
     <!-- 这是上面代码的简便写法 -->
     <!--
-    <bean id="bean" class="com.ljh.injection.bean.Bean"
+    <bean id="bean1" class="Bean"
           c:anotherBean-ref="anotherBean" c:string="ccccc"
           p:anotherBean-ref="anotherBean" p:string2="ddddd"/>
     -->

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 开启包扫描 -->
+    <context:component-scan base-package="com.ljh.xml.scope"/>
+
+
+    <!-- 默认单例 -->
+    <bean id="bean2" class="com.ljh.xml.scope.Bean2" scope="prototype"/>
+    <bean id="bean1" class="com.ljh.xml.scope.Bean1">
+        <!-- 方法注入
+            应用场景：Bean1 是 singleton，Bean2 是 prototype，Bean1 依赖 Bean2。
+            我们希望每次调用 Bean1 的某个方法时，该方法拿到的 Bean2 都是一个新的实例 -->
+        <lookup-method name="createBean2" bean="bean2"/>
+    </bean>
+
+
+
+    <!-- 每个 request 请求都会创建一个单独的实例 -->
+    <bean class="com.ljh.xml.scope.web.RequestController" scope="request"/>
+    <!-- 每个 session 都会创建一个单独的实例 -->
+    <bean class="com.ljh.xml.scope.web.SessionController" scope="session"/>
+    <!-- 每个 servletContext 都会创建一个单独的实例 -->
+    <bean class="com.ljh.xml.scope.web.ApplicationController" scope="application"/>
+    <!-- 每个 websocket 连接都会创建一个单独的实例 -->
+
+
+
+    <!-- 自定义作用域 -->
+    <bean id="myScope" class="com.ljh.xml.scope.custom.MyScope"/>
+    <!-- Spring 自带的自定义作用域：每个 线程 都会创建一个单独的实例 -->
+    <bean id="simpleThreadScope" class="org.springframework.context.support.SimpleThreadScope"/>
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="myScope" value-ref="myScope"/>
+                <entry key="simpleThreadScope" value-ref="simpleThreadScope"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="myScopeBean" class="com.ljh.xml.scope.custom.MyScopeBean" scope="myScope"/>
+    <bean id="simpleThreadScopeBean" class="com.ljh.xml.scope.custom.SimpleThreadScopeBean" scope="simpleThreadScope"/>
+
+</beans>

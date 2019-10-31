@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+    default-lazy-init="true"> <!-- 全局懒加载 -->
+
+    <!-- Spring 容器会在创建容器时提前初始化 Singleton 作用域的 Bean。
+        但是如果 Bean 被标注了 lazy-init="true"，则该 Bean 只有在其被需要的时候才会被初始化 。
+        使用场景：如果某个 Bean 在程序整个运行周期都可能不会被使用，那么可以考虑设定该 Bean 为懒加载 -->
+    <bean id="bean1" class="com.ljh.xml.lazy.Bean" lazy-init="true"/>
+</beans>
+
+

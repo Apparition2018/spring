@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="parent" class="com.ljh.xml.attr.inherit.Parent" abstract="true">
+        <property name="attr1" value="attr1"/>
+        <property name="attr2" value="attr2"/>
+        <property name="attr3" value="attr3"/>
+    </bean>
+
+    <bean id="son1" class="com.ljh.xml.attr.inherit.Son1" parent="parent">
+        <property name="attr4" value="attr4"/>
+        <property name="attr5" value="attr5"/>
+    </bean>
+    <bean id="son2" class="com.ljh.xml.attr.inherit.Son2" parent="parent">
+        <property name="attr6" value="attr6"/>
+        <property name="attr7" value="attr7"/>
+    </bean>
+
+    <bean id="parent2" abstract="true">
+        <property name="attr1" value="attr1"/>
+        <property name="attr2" value="attr2"/>
+        <property name="attr3" value="attr3"/>
+    </bean>
+
+    <bean id="son3" class="com.ljh.xml.attr.inherit.Son3" parent="parent2">
+        <property name="attr4" value="attr4"/>
+        <property name="attr5" value="attr5"/>
+    </bean>
+    <bean id="son4" class="com.ljh.xml.attr.inherit.Son4" parent="parent2">
+        <property name="attr6" value="attr6"/>
+        <property name="attr7" value="attr7"/>
+    </bean>
+</beans>
+
+
