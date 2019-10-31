@@ -56,6 +56,11 @@
 </table>
 
 ---
+## Bean 初始化和销毁
+#### 让 Bean 初始化之后 或 销毁之前 执行一些逻辑
+1. 实现 InitializingBean, DisposableBean
+2. xml 配置 init-method 或 destory-method
+---
 ## 注解注入 Bean
 1. 通过方法注入 Bean
     1. 通过构造方法注入 Bean
@@ -70,10 +75,11 @@
 4. String, Integer 等类型直接赋值
 5. SpringIoC 容器内置接口实例注入
 ---
-## Bean 初始化和销毁
+## 注解 Bean 初始化和销毁
 #### 让 Bean 初始化之后 或 销毁之前 执行一些逻辑
-1. 使用 init-method 或 destory-method
-2. 让 Bean 实现 InitializingBean 或 DisposableBean
+1. 实现 InitializingBean, DisposableBean
+2. @PostConstruct, @PreDestroy
+3. @Configuration 文件中 @Bean(initMethod = "xxx", destroyMethod = "xxx")
 ---
 ## SpringWeb 上下文环境
 1. 如果使用 DispatcherServlet，则不需要增加其他任何配置
