@@ -36,7 +36,7 @@ public class ScopeTest {
 
     @Test
     public void testMyScope() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             MyScopeBean bean = context.getBean("myScopeBean", MyScopeBean.class);
             System.out.println("bean = " + bean);
         }
@@ -44,12 +44,12 @@ public class ScopeTest {
 
     @Test
     public void testSimpleThreadScope() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             SimpleThreadScopeBean bean = context.getBean("simpleThreadScopeBean", SimpleThreadScopeBean.class);
             System.out.println("bean = " + bean);
         }
         System.out.println("=========================================================");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 SimpleThreadScopeBean bean = context.getBean("simpleThreadScopeBean", SimpleThreadScopeBean.class);
                 System.out.println("bean = " + bean);

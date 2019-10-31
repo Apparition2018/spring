@@ -1,18 +1,18 @@
 package com.ljh.annotation;
 
-import com.ljh.annotation.configuration.Bean1;
-import com.ljh.annotation.configuration.MyConfiguration;
+import com.ljh.annotation.basic.Bean1;
+import com.ljh.annotation.basic.MyConfiguration;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * ConfigurationTest
+ * BasicTest
  *
  * @author ljh
  * created on 2019/10/31 11:41
  */
-public class ConfigurationTest {
+public class BasicTest {
 
     @Test
     public void test() {

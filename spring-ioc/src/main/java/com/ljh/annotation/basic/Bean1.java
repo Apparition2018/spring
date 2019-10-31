@@ -1,4 +1,4 @@
-package com.ljh.annotation.configuration;
+package com.ljh.annotation.basic;
 
 /**
  * Bean1
