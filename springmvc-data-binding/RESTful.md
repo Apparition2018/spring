@@ -14,10 +14,10 @@
 ---
 ## State Transfer (状态转化)
 #### 幂等性：每次 HTTP 请求相同的参数，相同的 URI，产生的结果是相同的
-    GET     获取资源                    http://wwww.book.com/book/001
-    POST    创建资源-不具有幂等性        http://wwww.book.com/book
-    PUT     创建(更新)资源              http://wwww.book.com/book/001
-    DELETE                             http://wwww.book.com/book/001
+    1. GET     获取资源                    http://wwww.book.com/book/001
+    2. POST    创建资源-不具有幂等性        http://wwww.book.com/book
+    3. PUT     创建(更新)资源              http://wwww.book.com/book/001
+    4. DELETE                             http://wwww.book.com/book/001
 ---
 ## RESTful 设计
     movie.douban.com/show/subject/11620560/             避免动词
