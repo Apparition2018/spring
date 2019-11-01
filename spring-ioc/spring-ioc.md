@@ -28,10 +28,10 @@
     1. Singleton 作用域
     2. prototype 作用域
     3. Web 环境作用域
-        1. request 作用域
-        2. session 作用域
-        3. application 作用域
-        4. websocket 作用域
+        1) request 作用域
+        2) session 作用域
+        3) application 作用域
+        4) websocket 作用域
     5. 自定义作用域 (SimpleThreadScope 作用域)
 <table>
     <tr>
