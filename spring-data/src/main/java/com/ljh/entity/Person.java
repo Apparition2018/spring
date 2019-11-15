@@ -1,7 +1,5 @@
 package com.ljh.entity;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -13,20 +11,22 @@ import java.util.Date;
  * @author ljh
  * created on 2019/11/13 14:49
  */
-//@Getter
-//@Setter
-//@ToString
-@Table(name="JPA_PERSONS")
+@Table(name = "JPA_PERSONS")
 @Entity
+@ToString
 public class Person {
 
-    @GeneratedValue
-    @Id
     private Integer id;
     private String lastName;
     private String email;
     private Date birth;
 
+    private Address address;
+
+    private Integer addressId;
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     public Integer getId() {
         return id;
     }
@@ -57,5 +57,24 @@ public class Person {
 
     public void setBirth(Date birth) {
         this.birth = birth;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "ADDRESS_ID")
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    @Column(name = "ADD_ID")
+    public Integer getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Integer addressId) {
+        this.addressId = addressId;
     }
 }
