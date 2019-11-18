@@ -1,7 +1,7 @@
-# [Spring Data视频教程](http://www.atguigu.com/download_detail.shtml?v=25)
+# [Spring Data 教程](http://www.atguigu.com/download_detail.shtml?v=25)
 课程介绍：Spring Data 是 Spring 的一个子项目。用于简化数据库访问，支持NoSQL 和 关系数据存储。使用 SpringData 可以大幅减少数据访问层 (DAO) 的开发量. 开发者要做的，就是声明持久层接口，其他都交给 Spring Data JPA 来帮你完成！学习本套视频教程建议有 JPA 基础，没有掌握 JPA 技术的同学在学习本视频教程时可能对部分内容不能完全透彻理解，建议这部分同学，先学习尚硅谷佟刚的 JPA 视频教程。
 
-## 视频目录
+## 目录
 - 00.源代码和PPT
 - 01.概述
 - 02.HelloWorld
