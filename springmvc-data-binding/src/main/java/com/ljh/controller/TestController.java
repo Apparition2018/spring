@@ -83,7 +83,6 @@ public class TestController {
     // http://localhost:8080/map.do?users['x'].name=Tom&users['x'].age=10&users['y'].name=Lucy
     @RequestMapping(value = "map.do")
     @ResponseBody
-
     public String map(UserMapForm userMapForm) {
         return userMapForm.toString();
     }
