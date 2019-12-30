@@ -9,6 +9,15 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <modules>
+        <!-- Spring框架小白的蜕变 -->
+        <module>spring-ioc</module>
+        <!-- SpringMVC数据绑定入门 -->
+        <module>spring-data-binding</module>
+        <!-- Spring Data 教程 -->
+        <module>spring-data</module>
+    </modules>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -64,14 +73,5 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <modules>
-        <!-- Spring框架小白的蜕变 -->
-        <module>spring-ioc</module>
-        <!-- SpringMVC数据绑定入门 -->
-        <module>springmvc-data-binding</module>
-        <!-- Spring Data 教程 -->
-        <module>spring-data</module>
-    </modules>
 
 </project>
