@@ -21,3 +21,8 @@
 >2. 类型转换
 >- value
 >---
+## 自定义类型转换器
+- PropertyEditor
+- Formatter
+- Converter
+---

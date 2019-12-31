@@ -52,6 +52,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
+        if (user.name == null && user.age == null) return false;
         return Objects.equals(name, user.name) &&
                 Objects.equals(age, user.age);
     }

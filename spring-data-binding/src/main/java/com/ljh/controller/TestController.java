@@ -37,6 +37,7 @@ public class TestController {
     // http://localhost:8080/array.do?names=Tom&names=Lucy&names=Jim
     @RequestMapping(value = "array.do")
     @ResponseBody
+    // 相当于 array(RequestParam("names") List<String> names)
     public String array(String[] names) {
         StringBuilder sb = new StringBuilder();
         for (String name : names) {
@@ -74,6 +75,10 @@ public class TestController {
 
     // http://localhost:8080/set.do?users[0].name=Tom&users[1].name=Lucy
     // http://localhost:8080/set.do?users[0].name=Tom&users[1].name=Tom
+    // 需要在 UserSetForm 中初始化 Set，长度为接收参数个数
+    // 但由于 Set 一般用于排重，所以需要重写 equals 和 hashcode，这跟初始化 Set 冲突，因为初始化时 add new User() 会被认为是重复对象
+    // 修改 equals，使初始化 Set 时 add new User() 不会被认为添加重复对象，但接受参数却没有去重效果
+    // 所以一般不使用 Set 接受参数
     @RequestMapping(value = "set.do")
     @ResponseBody
     public String set(UserSetForm userSetForm) {
