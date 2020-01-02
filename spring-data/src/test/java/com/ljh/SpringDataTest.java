@@ -1,7 +1,7 @@
 package com.ljh;
 
-import com.ljh.repositories.PersonRepository;
 import com.ljh.entity.Person;
+import com.ljh.repositories.PersonRepository;
 import com.ljh.service.PersonService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -12,7 +12,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 
-import javax.persistence.criteria.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,7 +134,7 @@ public class SpringDataTest {
             Person person = new Person();
             person.setAddressId(i + 1);
             person.setBirth(new Date());
-            person.setEmail((char) i + "" + (char) i  + "@ljh.com");
+            person.setEmail((char) i + "" + (char) i + "@ljh.com");
             person.setLastName((char) i + "" + (char) i);
 
             personList.add(person);
@@ -180,7 +183,7 @@ public class SpringDataTest {
 
     /**
      * 测试 JpsSpecificationExecutor
-     *
+     * <p>
      * 实现带查询条件的分页
      * 调用 JpsSpecificationExecutor 的 Page<T> findAll(Specification<T> spec, Pageable pageable);
      * Specification: 封装了 JPA Criteria 查询的查询条件
@@ -200,7 +203,7 @@ public class SpringDataTest {
              *              2.可以用来添加查询条件
              *              3.结合 EntityManager 对象得到最终查询的 TypedQuery 对象
              * @param criteriaBuilder   用于创建 Criteria 相关对象的工厂
-             * @return  Predicate 代表一个查询条件
+             * @return Predicate 代表一个查询条件
              */
             @Override
             public Predicate toPredicate(Root<Person> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {

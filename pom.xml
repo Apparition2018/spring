@@ -10,12 +10,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <!-- Spring框架小白的蜕变 -->
+        <!-- Spring 框架小白的蜕变 -->
         <module>spring-ioc</module>
-        <!-- SpringMVC数据绑定入门 -->
+        <!-- SpringMVC 数据绑定入门 -->
         <module>spring-data-binding</module>
         <!-- Spring Data 教程 -->
         <module>spring-data</module>
+        <!-- 探秘 Spring AOP -->
+        <module>spring-aop</module>
     </modules>
 
     <properties>
