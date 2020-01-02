@@ -29,11 +29,10 @@ public class DemoService {
         this.operationLogDao = operationLogDao;
     }
     
-//    @Transactional
+    @Transactional
     public void addUser(String name) {
         OperationLog log = new OperationLog();
         log.setContent("create user: " + name);
-        log.setCreateAt(new Date());
         operationLogDao.save(log);
         
         User user = new User();
