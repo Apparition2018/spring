@@ -1,8 +1,7 @@
 package com.ljh.combat.domain;
 
 import com.ljh.combat.datalog.DataLog;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +17,7 @@ import java.util.Date;
  * created on 2020/1/3 0:18
  */
 @Entity
-@Getter
-@Setter
+@Data
 public class Product {
 
     @Id

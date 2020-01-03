@@ -26,4 +26,19 @@ public class CacheTests {
         System.out.println("call: " + menuService.getMenuList());
         System.out.println("call: " + menuService.getMenuList());
     }
+
+    /**
+     * 无法拦截内部方法调用
+     */
+    @Test
+    public void testInnerCall() {
+        System.out.println("call: " + menuService.getRecommends());
+        System.out.println("call: " + menuService.getRecommends());
+
+        System.out.println("call: " + menuService.getRecommends2());
+        System.out.println("call: " + menuService.getRecommends2());
+
+        System.out.println("call: " + menuService.getRecommends3());
+        System.out.println("call: " + menuService.getRecommends3());
+    }
 }
