@@ -12,9 +12,7 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DateFormat;
@@ -32,8 +30,8 @@ public class DiffUtil {
     private static final Logger logger = LoggerFactory.getLogger(DiffUtil.class);
 
     public static Object getObjectById(Object target, Object id) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        Method findMethod = target.getClass().getDeclaredMethod("findById", Long.class);
-        return findMethod.invoke(target, id);
+        Method method = target.getClass().getDeclaredMethod("findById2", Long.class);
+        return method.invoke(target, id);
     }
 
     /**

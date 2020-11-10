@@ -41,8 +41,8 @@ public class DataLogAspect {
 
     }
 
-    @Pointcut("execution(public * com.ljh.combat.dao.*.delete*(..))")
-    public void delete() {
+    @Pointcut("execution(public * com.ljh.combat.dao.*.deleteById*(..))")
+    public void deleteById() {
 
     }
 
@@ -59,7 +59,7 @@ public class DataLogAspect {
      *  objectId
      *  objectClass
      */
-    @Around("save() || delete()")
+    @Around("save() || deleteById()")
     public Object addOperateLog(ProceedingJoinPoint joinPoint) {
         Object returnObj = null;
         // TODO BEFORE OPERATION init action
@@ -73,13 +73,14 @@ public class DataLogAspect {
                 // insert or update
                 Object obj = joinPoint.getArgs()[0];
                 try {
-                    id = Long.valueOf(PropertyUtils.getProperty(obj, "id").toString());
-                } catch (NumberFormatException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-                    // ignore
+                    id = (Long) PropertyUtils.getProperty(obj, "id");
+                } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                    e.printStackTrace();
                 }
                 if (id == null) {
                     actionType = ActionType.INSERT;
                     List<ChangeItem> changeItems = DiffUtil.getInsertChangeItems(obj);
+                    action.getChanges().addAll(changeItems);
                     action.setObjectClass(obj.getClass().getName());
                 } else {
                     actionType = ActionType.UPDATE;
@@ -87,12 +88,13 @@ public class DataLogAspect {
                     oldObj = DiffUtil.getObjectById(joinPoint.getTarget(), id);
                     action.setObjectClass(oldObj.getClass().getName());
                 }
-            } else if ("delete".equals(method)) {
+            } else if ("deleteById".equals(method)) {
+                id = Long.valueOf(joinPoint.getArgs()[0].toString());
                 actionType = ActionType.DELETE;
                 oldObj = DiffUtil.getObjectById(joinPoint.getTarget(), id);
                 ChangeItem changeItem = DiffUtil.getDeleteChangeItem(oldObj);
                 action.getChanges().add(changeItem);
-                action.setObjectId(Long.valueOf(joinPoint.getArgs()[0].toString()));
+                action.setObjectId(id);
                 action.setObjectClass(oldObj.getClass().getName());
             }
             returnObj = joinPoint.proceed(joinPoint.getArgs());
@@ -103,7 +105,7 @@ public class DataLogAspect {
                 Object newId = PropertyUtils.getProperty(returnObj, "id");
                 action.setObjectId(Long.valueOf(newId.toString()));
             } else if (ActionType.UPDATE == actionType) {
-                Object newObj = DiffUtil.getObjectById(joinPoint, id);
+                Object newObj = DiffUtil.getObjectById(joinPoint.getTarget(), id);
                 List<ChangeItem> changeItems = DiffUtil.getChangeItems(oldObj, newObj);
                 action.getChanges().addAll(changeItems);
             }

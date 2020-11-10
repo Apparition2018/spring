@@ -5,11 +5,9 @@ import com.ljh.combat.domain.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.parameters.P;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -44,8 +42,8 @@ public class CombatTests {
     @Test
     public void testUpdate() {
         Optional<Product> productById = productDao.findById(1L);
-        Product product = productById.orElse(null);
-        Objects.requireNonNull(product).setName("test-update");
+        Product product = productById.orElse(new Product());
+        product.setName("test-update");
         product.setBuyPrice(new BigDecimal("23.5"));
         product.setOnlineTime(new Date());
         productDao.save(product);
