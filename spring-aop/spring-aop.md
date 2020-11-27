@@ -24,6 +24,18 @@
 - 分布式追踪
 - 异常处理
 ---
+## AOP 基本概念
+||||
+|:---|:---|:---|
+|横切|cross-cutting|与对象核心功能无关的公共行为|
+|关注点|concern|一块我们感兴趣的区域|
+|切面|Aspect|横切面对象，对横切关注点的抽象(可以借助@Aspect声明)|
+|连接点|JoinPoint|被拦截到的点，可以是方法，字段和构造器，Spring只支持拦截方法|
+|切入点|Pointcut|对连接点进行拦截的定义  @Pointcut|
+|通知|advice|拦截到连接点之后要执行的代码  1）前置@Before 2）后置@After 3）异常@AfterThrowing 4）最终@AfterReturing 5）环绕通知@Around|
+|目标对象|target|代理的目标对象|
+|织入|weave|将切面应用到目标对象并导致代理对象创建的过程|
+|引入|introduction|为类动态地添加一些方法或字段|
 ## AOP 主要注解
 - @Aspect
 - @Pointcut

@@ -1,6 +1,5 @@
 package com.ljh.proxy.cglib;
 
-import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
@@ -13,7 +12,7 @@ import java.lang.reflect.Method;
  * created on 2020/1/2 16:52
  */
 public class DemoMethodInterceptor implements MethodInterceptor {
-    
+
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("before");
