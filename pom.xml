@@ -6,7 +6,7 @@
     <groupId>com.ljh</groupId>
     <artifactId>spring</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <modules>
         <!-- Spring 框架小白的蜕变 -->
