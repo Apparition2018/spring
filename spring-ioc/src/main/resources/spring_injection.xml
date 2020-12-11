@@ -77,5 +77,3 @@
           p:anotherBean-ref="anotherBean" p:string2="ddddd"/>
     -->
 </beans>
-
-

@@ -21,7 +21,6 @@ public class MyScope implements Scope {
     private Map<String, Object> map1 = new ConcurrentHashMap<>();
     private Map<String, Object> map2 = new ConcurrentHashMap<>();
 
-
     @Override
     public Object get(String name, ObjectFactory<?> objectFactory) {
         if (!map1.containsKey(name)) {

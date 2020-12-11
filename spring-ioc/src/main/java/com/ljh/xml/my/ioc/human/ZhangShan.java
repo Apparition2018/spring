@@ -10,7 +10,6 @@ import com.ljh.xml.my.ioc.car.Car;
  */
 public class ZhangShan extends HumanWithCar {
 
-
     public ZhangShan(Car car) {
         super(car);
     }

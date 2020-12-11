@@ -6,20 +6,9 @@
         <groupId>com.ljh</groupId>
         <artifactId>spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/>
     </parent>
     <artifactId>spring-data</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring-data-jpa.version>2.3.5.RELEASE</spring-data-jpa.version>
-        <hibernate-c3p0.version>5.4.23.Final</hibernate-c3p0.version>
-        <mysql-connector-java.version>8.0.22</mysql-connector-java.version>
-        <slf4j-simple.version>1.7.30</slf4j-simple.version>
-    </properties>
 
     <dependencies>
         <!-- spring-data-jpa 包含了 slf4j-simple
@@ -30,22 +19,18 @@
             <version>${spring-data-jpa.version}</version>
         </dependency>
 
-        <!-- hibernate-c3p0 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
             <version>${hibernate-c3p0.version}</version>
         </dependency>
 
-        <!-- mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.22</version>
             <scope>${mysql-connector-java.version}</scope>
         </dependency>
-
     </dependencies>
-
 
 </project>

@@ -11,5 +11,3 @@
     <bean id="bean1" class="com.ljh.xml.init.destroy.Bean"
         init-method="onInit" destroy-method="onDestroy"/>
 </beans>
-
-

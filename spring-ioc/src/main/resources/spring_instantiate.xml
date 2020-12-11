@@ -4,7 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
     <!-- 通过构造方法实例化 Bean -->
     <!-- 给 bean1 起了别名 bean1_1, bean1_2 -->
     <bean id="bean1" class="com.ljh.xml.instantiate.Bean1" name="bean1_1, bean1_2"/>

@@ -12,5 +12,3 @@
         使用场景：如果某个 Bean 在程序整个运行周期都可能不会被使用，那么可以考虑设定该 Bean 为懒加载 -->
     <bean id="bean1" class="com.ljh.xml.lazy.Bean" lazy-init="true"/>
 </beans>
-
-
