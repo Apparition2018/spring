@@ -22,14 +22,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>${hibernate-c3p0.version}</version>
         </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.22</version>
-            <scope>${mysql-connector-java.version}</scope>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
