@@ -30,9 +30,9 @@ import java.util.List;
  */
 public class SpringDataTest {
 
-    private ApplicationContext ctx;
-    private PersonRepository personRepository;
-    private PersonService personService;
+    private final ApplicationContext ctx;
+    private final PersonRepository personRepository;
+    private final PersonService personService;
 
     {
         ctx = new ClassPathXmlApplicationContext("applicationContext.xml");

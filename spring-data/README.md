@@ -10,7 +10,7 @@
 - 05.Query注解
 - 06.Modifying注解
 - 07.CrudRepository接口
-- 08.PagingAndSortingRespository接口
+- 08.PagingAndSortingRepository接口
 - 09.JpaRepository接口
 - 10.JpaSpecificationExecutor接口
 - 11.自定义Repository 方法

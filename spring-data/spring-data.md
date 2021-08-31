@@ -1,6 +1,5 @@
 # Spring Data
-Spring Data 是 Sping 的一个子项目。用于简化数据库访问，支持 NoSQL 和关系数据存储。其主要目标是使数据库的访问变得方便快捷。
-
+- Spring Data 是 Spring 的一个子项目。用于简化数据库访问，支持 NoSQL 和关系数据存储。其主要目标是使数据库的访问变得方便快捷。
 ---
 >## 支持的 NoSQL
 >1. MongoDB (文档数据库)
@@ -13,8 +12,7 @@ Spring Data 是 Sping 的一个子项目。用于简化数据库访问，支持 
 >2. JPA
 ---
 # Spring Data JPA
-Spring Data JPA 致力于减少数据访问层(DAO)的开发量，开发者唯一要做的，就只是声明持久层的接口，其它都交给 Spring Data JPA 来完成。
-
+- Spring Data JPA 致力于减少数据访问层(DAO)的开发量，开发者唯一要做的，就只是声明持久层的接口，其它都交给 Spring Data JPA 来完成。
 ---
 >## Spring Data JPA 持久层开发步骤
 >1. 配置 Spring 整合 JPA
@@ -47,7 +45,7 @@ Spring Data JPA 致力于减少数据访问层(DAO)的开发量，开发者唯�
 >>```
 >>  And             Or              Between             LessThan            GreaterThan     
 >>  After           Before          IsNull              IsNotNull           NotNull         
->>  Like            NotLike         StartingWith        Ending`W`ith          Containing
+>>  Like            NotLike         StartingWith        Ending`W`ith        Containing
 >>  OrderBy         Not             In                  NotIn               TRUE            FALSE
 >>```
 >>---
