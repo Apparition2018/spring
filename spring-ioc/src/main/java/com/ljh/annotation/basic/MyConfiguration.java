@@ -1,6 +1,5 @@
 package com.ljh.annotation.basic;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,12 +11,12 @@ import org.springframework.context.annotation.Configuration;
  */
 // 创建一个 class 配置文件
 @Configuration
-@ComponentScan(value = "com.ljh.annotation")
+@ComponentScan(value = "com.ljh.annotation.basic")
 public class MyConfiguration {
 
     // 将一个 Bean 交由 Spring 创建并管理
-    @Bean(value = {"myBean", "customBean"})
-    public Bean1 bean1() {
-        return new Bean1();
+    @org.springframework.context.annotation.Bean(value = {"myBean", "customBean"})
+    public Bean bean() {
+        return new Bean();
     }
 }

@@ -1,6 +1,6 @@
 package com.ljh.annotation;
 
-import com.ljh.annotation.basic.Bean1;
+import com.ljh.annotation.basic.Bean;
 import com.ljh.annotation.basic.MyConfiguration;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +17,7 @@ public class BasicTest {
     @Test
     public void test() {
         ApplicationContext context = new AnnotationConfigApplicationContext(MyConfiguration.class);
-        Bean1 bean1 = context.getBean("customBean", Bean1.class);
-        System.out.println("bean1 = " + bean1);
+        Bean bean = context.getBean("customBean", Bean.class);
+        System.out.println("bean = " + bean);
     }
 }

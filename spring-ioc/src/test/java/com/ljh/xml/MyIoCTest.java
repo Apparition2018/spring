@@ -17,7 +17,7 @@ import org.junit.Test;
  */
 public class MyIoCTest {
 
-    private IoCContainer ioCContainer = new IoCContainer();
+    private final IoCContainer ioCContainer = new IoCContainer();
 
     @Before
     public void before() {

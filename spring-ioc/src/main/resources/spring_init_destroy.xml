@@ -8,6 +8,6 @@
     default-init-method="onInit"
     default-destroy-method="onDestroy"> <!-- 全局初始化和销毁逻辑 -->
 
-    <bean id="bean1" class="com.ljh.xml.init.destroy.Bean"
+    <bean id="bean" class="com.ljh.xml.init.destroy.Bean"
         init-method="onInit" destroy-method="onDestroy"/>
 </beans>

@@ -8,7 +8,7 @@
 
     <bean id="anotherBean" class="com.ljh.xml.injection.AnotherBean"/>
 
-    <bean id="bean1" class="com.ljh.xml.injection.Bean">
+    <bean id="bean" class="com.ljh.xml.injection.Bean">
         <!-- 通过构造方法注入 Bean -->
         <!-- index, name, type 任意组合能表示哪一个参数即可 -->
         <constructor-arg index="0" name="anotherBean" type="com.ljh.xml.injection.AnotherBean" ref="anotherBean"/>
