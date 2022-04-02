@@ -1,12 +1,12 @@
 package com.ljh.controller;
 
 import com.ljh.object.*;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -69,7 +69,7 @@ public class TestController {
     @RequestMapping(value = "list.do")
     @ResponseBody
     public String list(UserListForm userListForm) {
-        return "listSize:" + userListForm.getUsers().size() + " " + userListForm.toString();
+        return "listSize:" + userListForm.getUsers().size() + " " + userListForm;
     }
 
     // http://localhost:8080/set.do?users[0].name=Tom&users[1].name=Lucy
