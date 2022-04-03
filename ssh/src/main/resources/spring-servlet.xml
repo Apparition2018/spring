@@ -10,11 +10,18 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean name="/test1/hello" class="com.ljh.controller.HelloWorldController"/>
+    <bean name="/ori" class="com.ljh.controller.OriginalController"/>
 
+    <context:component-scan base-package="com.ljh"/>
+
+    <!-- mvc-view-jsp -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-<!--        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+        <!-- <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- 访问静态资源 -->
+    <mvc:resources mapping="/**" location="classpath:static/" cache-period="900"/>
+
 </beans>

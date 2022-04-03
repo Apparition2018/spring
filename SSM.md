@@ -2,32 +2,38 @@
 - Spring + SpringMVC + Hibernate
 ---
 ## Reference
-- [SpringMVC+hibernate+springÊµ¼ù_ßÙÁ¨ßÙÁ¨](https://www.bilibili.com/video/BV1qb411L7RS)
+- [SpringMVC+hibernate+springå®è·µ_å“”å“©å“”å“©](https://www.bilibili.com/video/BV1qb411L7RS)
 ---
-## ´´½¨ÏîÄ¿
-- ´´½¨ÏîÄ¿Ê±£¬Create from archetype Ñ¡Ôñ maven-archetype-webapp
+## åˆ›å»ºé¡¹ç›®
+- åˆ›å»ºé¡¹ç›®æ—¶ï¼ŒCreate from archetype é€‰æ‹© maven-archetype-webapp
 ---
 ## SpringMVC
-1. web.xml
+1. web.xml é…ç½® DispatcherServlet
+    ```xml
+    <web-app>
+        <servlet>
+            <servlet-name>spring-mvc</servlet-name>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+            <init-param>
+                <param-name>contextConfigLocation</param-name>
+                <param-value>classpath:spring-servlet.xml</param-value>
+            </init-param>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>spring-mvc</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+    </web-app>
     ```
-    <servlet>
-        <servlet-name>spring-mvc</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath*:spring-servlet.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>spring-mvc</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-    ```
-2. spring-servlet.xml ÅäÖÃ ViewResolver
-    ```
+2. spring-servlet.xml é…ç½® mvc-view-jsp
+    ```xml
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    ```
+3. spring-servlet.xml é…ç½® è®¿é—®é™æ€èµ„æº
+    ```xml
+    <mvc:resources mapping="/**" location="classpath:static/" cache-period="900"/>
     ```

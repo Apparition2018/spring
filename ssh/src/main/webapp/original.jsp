@@ -11,14 +11,22 @@
 <html>
 <head>
     <title>Welcome</title>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 <body>
-<h1>Welcome</h1>
-${result}
+<h1>Original</h1>
 <div>
     <c:forEach items="${map}" var="m">
         <div>${m.key} ---> ${m.value}</div>
     </c:forEach>
 </div>
+<div>
+    <img src="/img/bird.jpg" alt="bird">
+</div>
+<script>
+    $(function () {
+        alert(1);
+    });
+</script>
 </body>
 </html>
