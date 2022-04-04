@@ -1,5 +1,5 @@
-# SSM
-- Spring + SpringMVC + Hibernate
+# SSH
+- SpringMVC + Spring + Hibernate
 ---
 ## Reference
 - [SpringMVC+hibernate+spring实践_哔哩哔哩](https://www.bilibili.com/video/BV1qb411L7RS)
@@ -69,5 +69,19 @@
             <property name="maxUploadSize" value="10485760000"/>
             <property name="maxInMemorySize" value="40960"/>
         </bean>
+    </beans>
+    ```
+---
+## Spring
+1. web.xml 配置 ContextLoaderListener 和 <context-param/>
+    ```xml
+    <beans>
+        <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:applicationContext.xml</param-value>
+        </context-param>
+        <listener>
+            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        </listener>
     </beans>
     ```
