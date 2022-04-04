@@ -22,6 +22,6 @@ public class OriginalController implements Controller {
         map.put("A", "1");
         map.put("B", "2");
         map.put("C", "3");
-        return new ModelAndView("/original", "map", map);
+        return new ModelAndView("original", "map", map);
     }
 }

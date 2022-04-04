@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Welcome</title>
+    <title>Original</title>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
 <body>

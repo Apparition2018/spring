@@ -32,6 +32,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-data-jpa.version>2.6.3</spring-data-jpa.version>
         <tomcat.version>9.0.60</tomcat.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <commons-io.version>2.11.0</commons-io.version>
         <standard-impl.version>1.2.5</standard-impl.version>
         <jstl-api.version>1.2.2</jstl-api.version>
     </properties>
