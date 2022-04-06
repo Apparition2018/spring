@@ -71,9 +71,7 @@
         </bean>
     </beans>
     ```
----
-## Spring
-1. web.xml 配置 ContextLoaderListener 和 <context-param/>
+5. web.xml 配置 ContextLoaderListener 和 <context-param/>
     ```xml
     <beans>
         <context-param>
@@ -85,3 +83,8 @@
         </listener>
     </beans>
     ```
+---
+## 获取 WebApplicationContext
+1. applicationContext.xml：`WebApplicationContextUtils.getRequiredWebApplicationContext(request.getSession().getServletContext());`
+2. spring-servlet.xml：`RequestContextUtils.findWebApplicationContext(request);`
+---

@@ -46,6 +46,6 @@ public class UserController {
 
     @GetMapping("delete")
     public ModelAndView delete() {
-        return new ModelAndView("jsp/user-add", "result", "delete");
+        return new ModelAndView("success", "result", "success");
     }
 }
