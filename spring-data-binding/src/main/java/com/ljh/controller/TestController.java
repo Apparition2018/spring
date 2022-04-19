@@ -19,21 +19,21 @@ import java.util.Date;
 @Controller
 public class TestController {
 
-    // http://localhost:8080/baseType.do?age=10
+    // http://localhost:7001/baseType.do?age=10
     @RequestMapping(value = "baseType.do")
     @ResponseBody
     public String baseType(@RequestParam("age") int age) {
         return "age:" + age;
     }
 
-    // http://localhost:8080/baseType2.do?age=10
+    // http://localhost:7001/baseType2.do?age=10
     @RequestMapping(value = "baseType2.do")
     @ResponseBody
     public String baseType2(Integer age) {
         return "age:" + age;
     }
 
-    // http://localhost:8080/array.do?names=Tom&names=Lucy&names=Jim
+    // http://localhost:7001/array.do?names=Tom&names=Lucy&names=Jim
     @RequestMapping(value = "array.do")
     @ResponseBody
     // 相当于 array(RequestParam("names") List<String> names)
@@ -45,9 +45,9 @@ public class TestController {
         return sb.toString();
     }
 
-    // http://localhost:8080/object.do?name=Tom&age=10
-    // http://localhost:8080/object.do?name=Tom&age=10&contactInfo.phone=10086
-    // http://localhost:8080/object.do?user.name=Tom&admin.name=Lucy&age=10
+    // http://localhost:7001/object.do?name=Tom&age=10
+    // http://localhost:7001/object.do?name=Tom&age=10&contactInfo.phone=10086
+    // http://localhost:7001/object.do?user.name=Tom&admin.name=Lucy&age=10
     @RequestMapping(value = "object.do")
     @ResponseBody
     public String object(User user, Admin admin) {
@@ -64,16 +64,16 @@ public class TestController {
         binder.setFieldDefaultPrefix("admin.");
     }
 
-    // http://localhost:8080/list.do?users[0].name=Tom&users[1].name=Lucy
-    // http://localhost:8080/list.do?users[0].name=Tom&users[1].name=Lucy&users[20].name=Jim
+    // http://localhost:7001/list.do?users[0].name=Tom&users[1].name=Lucy
+    // http://localhost:7001/list.do?users[0].name=Tom&users[1].name=Lucy&users[20].name=Jim
     @RequestMapping(value = "list.do")
     @ResponseBody
     public String list(UserListForm userListForm) {
         return "listSize:" + userListForm.getUsers().size() + " " + userListForm;
     }
 
-    // http://localhost:8080/set.do?users[0].name=Tom&users[1].name=Lucy
-    // http://localhost:8080/set.do?users[0].name=Tom&users[1].name=Tom
+    // http://localhost:7001/set.do?users[0].name=Tom&users[1].name=Lucy
+    // http://localhost:7001/set.do?users[0].name=Tom&users[1].name=Tom
     // 需要在 UserSetForm 中初始化 Set，长度为接收参数个数
     // 但由于 Set 一般用于排重，所以需要重写 equals 和 hashcode，这跟初始化 Set 冲突，因为初始化时 add new User() 会被认为是重复对象
     // 修改 equals，使初始化 Set 时 add new User() 不会被认为添加重复对象，但接受参数却没有去重效果
@@ -84,14 +84,14 @@ public class TestController {
         return userSetForm.toString();
     }
 
-    // http://localhost:8080/map.do?users['x'].name=Tom&users['x'].age=10&users['y'].name=Lucy
+    // http://localhost:7001/map.do?users['x'].name=Tom&users['x'].age=10&users['y'].name=Lucy
     @RequestMapping(value = "map.do")
     @ResponseBody
     public String map(UserMapForm userMapForm) {
         return userMapForm.toString();
     }
 
-    // localhost:8080/json.do
+    // localhost:7001/json.do
     // application/json
     //  {
     //      "name": "Jim",
@@ -107,7 +107,7 @@ public class TestController {
         return user.toString();
     }
 
-    // localhost:8080/xml.do
+    // localhost:7001/xml.do
     // application/xml
     //  <?xml version="1.0" encoding="UTF-8" ?>
     //      <admin>
@@ -120,16 +120,16 @@ public class TestController {
         return admin.toString();
     }
 
-    // http://localhost:8080/converter.do?bool=1
-    // http://localhost:8080/converter.do?bool=on
-    // http://localhost:8080/converter.do?bool=yes
+    // http://localhost:7001/converter.do?bool=1
+    // http://localhost:7001/converter.do?bool=on
+    // http://localhost:7001/converter.do?bool=yes
     @RequestMapping(value = "converter.do")
     @ResponseBody
     public String converter(Boolean bool) {
         return bool.toString();
     }
 
-    // http://localhost:8080/date.do?date=2018-01-01
+    // http://localhost:7001/date.do?date=2018-01-01
     @RequestMapping(value = "date.do")
     @ResponseBody
     public String date(Date date) {
@@ -141,7 +141,7 @@ public class TestController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
     }
 
-    // http://localhost:8080/book
+    // http://localhost:7001/book
     @RequestMapping(value = "book", method = RequestMethod.GET)
     @ResponseBody
     public String book(HttpServletRequest request) {

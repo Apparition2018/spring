@@ -15,13 +15,13 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <!-- Spring 框架小白的蜕变 -->
+        <!-- 7000：Spring 框架小白的蜕变 -->
         <module>spring-ioc</module>
-        <!-- SpringMVC 数据绑定入门 -->
+        <!-- 7001：SpringMVC 数据绑定入门 -->
         <module>spring-data-binding</module>
-        <!-- Spring Data 教程 -->
+        <!-- 7002：Spring Data 教程 -->
         <module>spring-data</module>
-        <!-- Spring + SpringMVC + Hibernate -->
+        <!-- 7003：Spring + SpringMVC + Hibernate -->
         <module>ssh</module>
     </modules>
 
