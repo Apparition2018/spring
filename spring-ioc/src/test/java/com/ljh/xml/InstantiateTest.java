@@ -8,7 +8,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * InstantiateBean
  * 实例化 Bean
  *
  * @author ljh
@@ -21,7 +20,7 @@ public class InstantiateTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring_instantiate.xml");
         Bean1 bean1 = context.getBean("bean1", Bean1.class);
         System.out.println("bean1 = " + bean1);
-        
+
         Bean2 bean2 = context.getBean("bean2", Bean2.class);
         System.out.println("bean2 = " + bean2);
 

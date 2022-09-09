@@ -8,10 +8,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.awt.*;
-
 /**
- * ScopeTest
+ * 作用域
  *
  * @author ljh
  * created on 2019/10/31 14:09
@@ -46,5 +44,4 @@ public class ScopeTest {
             testBean3.printAnotherBean();
         }
     }
-
 }

@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * scopeTest
+ * 作用域
  *
  * @author ljh
  * created on 2019/10/31 8:57
@@ -26,7 +26,8 @@ public class ScopeTest {
     @Test
     public void test() {
         Bean1 bean1_1 = context.getBean("bean1", Bean1.class);
-        System.out.println("bean1_1 = " + bean1_1);;
+        System.out.println("bean1_1 = " + bean1_1);
+        ;
         Bean1 bean1_2 = context.getBean("bean1", Bean1.class);
         System.out.println("bean1_2 = " + bean1_2);
         System.out.println("(bean1_1 == bean1_2) = " + (bean1_1 == bean1_2));

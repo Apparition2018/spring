@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.AbstractApplicationContext;
 
 /**
- * InitDestroyTest
+ * 初始化和销毁
  *
  * @author ljh
  * created on 2019/10/31 14:41

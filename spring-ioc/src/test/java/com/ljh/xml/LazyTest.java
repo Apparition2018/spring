@@ -20,5 +20,4 @@ public class LazyTest {
         Bean bean = context.getBean("bean", Bean.class);
         System.out.println("bean = " + bean);
     }
-
 }

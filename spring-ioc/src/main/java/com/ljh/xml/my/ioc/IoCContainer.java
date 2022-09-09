@@ -7,12 +7,12 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * IoCContainer
- *
+ * <p>
  * 约定：
  * 1.所有 Bean 生命周期交由 IoC 容器管理
  * 2.所有依赖的 Bean 通过构造方法执行注入
  * 3.被依赖的 Bean 需要优先创建
- *
+ * <p>
  * 1.实例化 Bean
  * 2.保存 Bean
  * 3.提供 Bean
@@ -23,10 +23,11 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class IoCContainer {
 
-    private Map<String, Object> beans = new ConcurrentHashMap<>();
+    private final Map<String, Object> beans = new ConcurrentHashMap<>();
 
     /**
      * 根据 beanId 获取一个 Bean
+     *
      * @param beanId beanId
      * @return 返回 Bean
      */
@@ -36,8 +37,9 @@ public class IoCContainer {
 
     /**
      * 委托 IoC 容器创建一个 Bean
-     * @param clazz 要创建的 Bean 的 Class
-     * @param beanId beanId
+     *
+     * @param clazz        要创建的 Bean 的 Class
+     * @param beanId       beanId
      * @param paramBeanIds 要创建的 Bean 的 Class 的构造方法所需要的参数的 beanId 们
      */
     public void setBean(Class<?> clazz, String beanId, String... paramBeanIds) {
@@ -51,9 +53,7 @@ public class IoCContainer {
         for (Constructor<?> constructor : clazz.getConstructors()) {
             try {
                 bean = constructor.newInstance(paramValues);
-            } catch (InstantiationException e) {
-            } catch (IllegalAccessException e) {
-            } catch (InvocationTargetException e) {
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException ignored) {
             }
         }
         if (bean == null) {
@@ -62,5 +62,4 @@ public class IoCContainer {
         // 3. 将实例化的 Bean 放入 beans
         beans.put(beanId, bean);
     }
-
 }

@@ -6,13 +6,13 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * InitDestroyTest
+ * 初始化和销毁
  *
  * @author ljh
  * created on 2019/10/31 11:06
  */
 public class InitDestroyTest {
-    
+
     @Test
     public void test() {
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring_init_destroy.xml");

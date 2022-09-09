@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.Map;
 
 /**
- * InjectionTest
+ * 注入 Bean
  *
  * @author ljh
  * created on 2019/10/31 12:48
