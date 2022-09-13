@@ -43,5 +43,4 @@ public class Bean {
         this.anotherBean = anotherBean;
         this.string = string;
     }
-
 }

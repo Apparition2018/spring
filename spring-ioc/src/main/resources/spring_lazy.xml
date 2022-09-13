@@ -5,8 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd"
     default-lazy-init="true"> <!-- 全局懒加载 -->
 
-    <!-- Spring 容器会在创建容器时提前初始化 Singleton 作用域的 Bean。
-        但是如果 Bean 被标注了 lazy-init="true"，则该 Bean 只有在其被需要的时候才会被初始化 。
+    <!-- lazy-init="true"，第一次使用 Bean 的时候才被初始化，即使 scope="singleton"
         使用场景：如果某个 Bean 在程序整个运行周期都可能不会被使用，那么可以考虑设定该 Bean 为懒加载 -->
     <bean id="bean" class="com.ljh.xml.lazy.Bean" lazy-init="true"/>
 </beans>

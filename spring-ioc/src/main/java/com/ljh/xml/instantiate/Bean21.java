@@ -1,15 +1,14 @@
 package com.ljh.xml.instantiate;
 
 /**
- * Bean2
+ * Bean21
  *
  * @author ljh
  * created on 2019/10/30 9:10
  */
-public class Bean2 {
+public class Bean21 {
 
-    public Bean2() {
-        System.out.println("Bean2.Bean2");
-
+    public Bean21() {
+        System.out.println("Bean21.Bean21");
     }
 }

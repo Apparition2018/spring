@@ -8,4 +8,16 @@ package com.ljh.xml.injection;
  */
 public class AnotherBean {
 
+    private Integer num;
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    @Override
+    public String toString() {
+        return "AnotherBean{" +
+                "num=" + num +
+                '}';
+    }
 }

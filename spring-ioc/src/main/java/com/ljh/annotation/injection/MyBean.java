@@ -65,7 +65,7 @@ public class MyBean {
         this.stringList = stringList;
     }
 
-    // setter 方法注入
+    // setter 注入
     @Autowired
     public void setAnotherBean2(AnotherBean anotherBean2) {
         this.anotherBean2 = anotherBean2;

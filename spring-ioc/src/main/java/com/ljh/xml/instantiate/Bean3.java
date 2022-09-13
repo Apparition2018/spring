@@ -4,7 +4,7 @@ package com.ljh.xml.instantiate;
  * Bean3
  *
  * @author ljh
- * created on 2019/10/30 9:13
+ * created on 2022/9/13 9:59
  */
 public class Bean3 {
 

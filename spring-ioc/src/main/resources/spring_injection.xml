@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="anotherBean" class="com.ljh.xml.injection.AnotherBean"/>
 
     <bean id="bean" class="com.ljh.xml.injection.Bean">
-        <!-- 通过构造方法注入 Bean -->
+        <!-- 通过 构造方法 注入 Bean -->
         <!-- index, name, type 任意组合能表示哪一个参数即可 -->
         <constructor-arg index="0" name="anotherBean" type="com.ljh.xml.injection.AnotherBean" ref="anotherBean"/>
-        <constructor-arg index="1" name="string" type="java.lang.String" value="aaaaa"/>
+        <constructor-arg index="1" name="string" type="java.lang.String" value="aaa"/>
 
-        <!-- 通过 setter 方法注入 Bean -->
+        <!-- 通过 setter 注入 Bean -->
         <!-- <property name="anotherBean2" ref="anotherBean"/> -->
         <property name="anotherBean2">
             <!-- 注入时创建内部 Bean -->
             <bean class="com.ljh.xml.injection.AnotherBean"/>
         </property>
-        <property name="string2" value="bbbbb"/>
+        <!-- 注入级联属性值 -->
+        <property name="anotherBean2.num" value="1"/>
+        <property name="string2" value="bbb"/>
 
-        <!-- 集合注入 -->
+        <!-- 注入集合 -->
         <property name="stringList">
             <list>
-                <value>aaaaa</value>
-                <value>bbbbb</value>
+                <value>aaa</value>
+                <value>bbb</value>
             </list>
         </property>
         <property name="anotherBeanList">
@@ -35,8 +39,8 @@
         </property>
         <property name="stringSet">
             <set>
-                <value>aaaaa</value>
-                <value>bbbbb</value>
+                <value>aaa</value>
+                <value>bbb</value>
             </set>
         </property>
         <property name="anotherBeanSet">
@@ -47,8 +51,8 @@
         </property>
         <property name="stringMap">
             <map>
-                <entry key="ccccc" value="ddddd"/>
-                <entry key="eeeee" value="fffff"/>
+                <entry key="ccc" value="ddd"/>
+                <entry key="eee" value="fff"/>
             </map>
         </property>
         <property name="anotherBeanMap">
@@ -58,20 +62,21 @@
         </property>
         <property name="properties">
             <props>
-                <prop key="ggggg">hhhhh</prop>
+                <prop key="ggg">hhh</prop>
             </props>
         </property>
 
-        <!-- null 值注入 -->
+        <!-- 注入 null 值 -->
         <property name="anotherBean3">
             <null/>
         </property>
     </bean>
 
-    <!-- 这是上面代码的简便写法 -->
-    <!--
-    <bean id="bean1" class="Bean"
-          c:anotherBean-ref="anotherBean" c:string="ccccc"
-          p:anotherBean-ref="anotherBean" p:string2="ddddd"/>
-    -->
+    <!-- 通过命名空间注入 -->
+    <!-- c 命名空间：快捷构造方法注入 -->
+    <!-- p 命名空间：快捷 setter 注入 -->
+    <bean id="bean2" class="com.ljh.xml.injection.Bean"
+          c:anotherBean-ref="anotherBean" c:string="aaa"
+          p:anotherBean-ref="anotherBean" p:string2="bbb">
+    </bean>
 </beans>

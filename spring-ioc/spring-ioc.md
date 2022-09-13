@@ -12,33 +12,34 @@
 ---
 ## XML
 ### [实例化 Bean](./src/test/java/com/ljh/xml/InstantiateTest.java)
-1. 构造方法
-2. 静态方法
-3. 实例方法
+1. 无参构造方法
+2. 工厂方法
+    1. 静态工厂方法
+    2. 实例工厂方法
+3. FactoryBean
 ### [注入 Bean](./src/test/java/com/ljh/xml/InjectionTest.java)
 1. 构造方法注入
-2. setter 方法注入
-3. 集合类 Bean 的注入
-4. null 值注入
-5. 注入时创建内部 Bean
+    - c 命名空间注入：快捷的构造方法注入
+2. setter 注入
+    - p 命名空间注入：快捷的 setter 注入
+- 参数注入
+    1. 注入集合 List / Set / Map / Properties
+    2. 注入 null 值
 ### [Bean 作用域](./src/test/java/com/ljh/xml/ScopeTest.java)
-1. Singleton 作用域
-2. prototype 作用域
-3. Web 环境作用域
-    1. request 作用域
-    2. session 作用域
-    3. application 作用域
-    4. websocket 作用域
+1. Singleton
+2. prototype
+3. Web-aware
+    1. request
+    2. session
+    3. application
+    4. websocket
 4. 自定义作用域 (SimpleThreadScope 作用域)
 <table>
     <tr>
         <td align="center" colspan="2" rowspan="2"></td>
         <td align="center" colspan="2">Bean1 作用域</td>
     </tr>
-    <tr>
-        <td align="center">singleton</td>
-        <td align="center">prototype</td>
-    </tr>
+    <tr>无参构造器
     <tr>
         <td align="center"  rowspan="2">Bean2 作用域</td>
         <td align="center">singleton</td>
@@ -61,7 +62,7 @@
 ### [注入 Bean](./src/test/java/com/ljh/annotation/InjectionTest.java)
 1. 方法注入
     1. 构造方法注入
-    2. setter 方法注入
+    2. setter 注入
 2. 属性注入
 3. 集合类 Bean 的注入
     1. 直接注入集合实例

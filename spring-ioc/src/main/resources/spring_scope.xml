@@ -7,11 +7,10 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 开启包扫描 -->
     <context:component-scan base-package="com.ljh.xml.scope"/>
 
-    <!-- 默认单例 -->
     <bean id="bean2" class="com.ljh.xml.scope.Bean2" scope="prototype"/>
+    <!-- scope 默认为 singleton，Spring 容器创建时就会初始化 scope 为 Singleton 的 Bean -->
     <bean id="bean1" class="com.ljh.xml.scope.Bean1">
         <!-- 方法注入
             应用场景：Bean1 是 singleton，Bean2 是 prototype，Bean1 依赖 Bean2。

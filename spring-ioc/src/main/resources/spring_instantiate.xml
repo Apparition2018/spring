@@ -4,17 +4,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- 通过构造方法实例化 Bean
+    <!-- 1 通过 无参构造方法 实例化 Bean
         class: Bean 的全类名，通过反射创建 Bean，所以要求 Bean 必须有无参构造函数 -->
     <!-- 给 bean1 起了别名 bean1_1, bean1_2 -->
     <bean id="bean1" class="com.ljh.xml.instantiate.Bean1" name="bean1_1, bean1_2"/>
     <!-- 给 bean1 起了别名 bean1_3 -->
     <alias name="bean1" alias="bean1_3"/>
 
-    <!-- 通过静态方法实例化 Bean -->
-    <bean id="bean2" class="com.ljh.xml.instantiate.Bean2Factory" factory-method="getBean2"/>
+    <!-- 2 通过 工厂方法 实例化 Bean -->
+    <!-- 2.1 静态工厂方法 -->
+    <bean id="bean21" class="com.ljh.xml.instantiate.Bean21Factory" factory-method="getBean2"/>
+    <!-- 2.2 实例工厂方法 Bean -->
+    <bean id="bean22Factory" class="com.ljh.xml.instantiate.Bean22Factory"/>
+    <bean id="bean22" factory-bean="bean22Factory" factory-method="getBean22"/>
 
-    <!-- 通过实例方法实例化 Bean -->
-    <bean id="bean3Factory" class="com.ljh.xml.instantiate.Bean3Factory"/>
-    <bean id="bean3" factory-bean="bean3Factory" factory-method="getBean3"/>
+    <!-- 3 FactoryBean -->
+    <bean id="bean3" class="com.ljh.xml.instantiate.Bean3FactoryBean"/>
 </beans>
