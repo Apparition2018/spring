@@ -54,9 +54,13 @@
 </table>
 
 ### [Bean 初始化和销毁](./src/test/java/com/ljh/xml/InitDestroyTest.java)
-- 让 Bean 初始化之后 或 销毁之前 执行一些逻辑
-    - 实现 InitializingBean, DisposableBean
-    - xml 配置 init-method 或 destroy-method
+- 初始化回调
+    - implements InitializingBean
+    - `<bean init-method/>`
+- 销毁回调
+    - implements DisposableBean
+    - `<bean destroy-method/>`
+- 全局初始化和销毁方法：`<beans default-init-method default-destroy-method/>`
 ---
 ## 注解
 ### [注入 Bean](./src/test/java/com/ljh/annotation/InjectionTest.java)

@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd"
     default-init-method="onInit"
-    default-destroy-method="onDestroy"> <!-- 全局初始化和销毁逻辑 -->
+    default-destroy-method="onDestroy"> <!-- 全局初始化和销毁回调 -->
 
     <bean id="bean" class="com.ljh.xml.init.destroy.Bean"
         init-method="onInit" destroy-method="onDestroy"/>
