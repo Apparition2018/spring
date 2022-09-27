@@ -25,8 +25,8 @@ public class Person {
 
     private Integer addressId;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue
     public Integer getId() {
         return id;
     }

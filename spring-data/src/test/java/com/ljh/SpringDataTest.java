@@ -3,6 +3,7 @@ package com.ljh;
 import com.ljh.entity.Person;
 import com.ljh.repositories.PersonRepository;
 import com.ljh.service.PersonService;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -24,69 +25,65 @@ import java.util.List;
 
 /**
  * SpringDataTest
+ * SpringData JPA:https://blog.csdn.net/qq122516902/article/details/82940705
  *
  * @author ljh
  * created on 2019/11/13 14:04
  */
+@Slf4j
 public class SpringDataTest {
 
-    private final ApplicationContext ctx;
-    private final PersonRepository personRepository;
-    private final PersonService personService;
-
-    {
-        ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-        personRepository = ctx.getBean(PersonRepository.class);
-        personService = ctx.getBean(PersonService.class);
-    }
+    private final ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+    private final PersonRepository personRepository = ctx.getBean(PersonRepository.class);
+    private final PersonService personService = ctx.getBean(PersonService.class);
 
     /**
-     * 测试数据源
+     * 测试数据源配置是否成功
      */
     @Test
     public void testDataSource() {
         DataSource dataSource = ctx.getBean(DataSource.class);
-        System.out.println("dataSource = " + dataSource);
+        System.err.println("dataSource = " + dataSource);
     }
 
     /**
-     * 测试 EntityManagerFactory
+     * 测试实体管理工厂 (EntityManagerFactory) 是否配置成功
+     * 查看数据库是否生成表
      */
     @Test
-    public void testJPA() {
-        // 执行测试，查看数据库是否生成表
+    public void testEntityManagerFactory() {
     }
 
     @Test
-    public void testHelloWordSpringData() {
-        System.out.println("Proxy: " + personRepository.getClass().getName());
+    public void testHelloWord() {
+        System.err.println("Proxy: " + personRepository.getClass().getName());
 
-        Person person = personRepository.getByLastName("AA");
-        System.out.println("person = " + person);
+        Person person = personRepository.findByLastName("AA");
+        System.err.println("person = " + person);
     }
 
     /**
      * 测试关键字
      */
     @Test
-    public void testKeyWord() {
-        List<Person> personList = personRepository.getByLastNameStartingWithAndIdLessThan("X", 10);
-        System.out.println("personList = " + personList);
+    public void testModifyingAndKeyWord() {
+        List<Person> personList = personRepository.findByLastNameStartingWithAndIdLessThan("X", 10);
+        System.err.println("personList = " + personList);
 
-        personList = personRepository.getByLastNameEndingWithAndIdLessThan("X", 10);
-        System.out.println("personList = " + personList);
+        personList = personRepository.findByLastNameEndingWithAndIdLessThan("X", 10);
+        System.err.println("personList = " + personList);
 
-        personList = personRepository.getByEmailInAndBirthLessThan(Arrays.asList("AA@ljh.com", "FF@ljh.com", "SS@ljh.com"), new Date());
-        System.out.println("personList = " + personList);
+        personList = personRepository.findByEmailInAndBirthLessThan(Arrays.asList("AA@ljh.com", "FF@ljh.com", "SS@ljh.com"), new Date());
+        System.err.println("personList = " + personList);
     }
 
     /**
-     * 测试级联查询
+     * 测试属性表达式
      */
     @Test
-    public void testKeyWord2() {
-        List<Person> personList = personRepository.getByAddress_IdGreaterThan(1);
-        System.out.println("personList = " + personList);
+    public void testPropertyExpressions() {
+        List<Person> personList = personRepository.findByAddress_IdGreaterThan(1);
+        System.err.println("personList = " + personList);
     }
 
     /**
@@ -95,24 +92,24 @@ public class SpringDataTest {
     @Test
     public void testQueryAnnotation() {
         // 无参
-        Person person = personRepository.getMaxIdPerson();
-        System.out.println("person = " + person);
+        Person person = personRepository.queryByMaxId();
+        System.err.println("person = " + person);
 
         // 传参：占位符
-        List<Person> personList = personRepository.testQueryAnnotationParams1("AA", "aa@ljh.com");
-        System.out.println("personList = " + personList);
+        List<Person> personList = personRepository.queryByLastNameAndEmail("AA", "aa@ljh.com");
+        System.err.println("personList = " + personList);
 
         // 传参：命名参数
-        personList = personRepository.testQueryAnnotationParams2("aa@ljh.com", "AA");
-        System.out.println("personList = " + personList);
+        personList = personRepository.queryByLastNameAndEmail2("AA", "aa@ljh.com");
+        System.err.println("personList = " + personList);
 
         // 传参：like，SpringData 允许在 JPQL 语句上添加 %
-        personList = personRepository.testQueryAnnotationLikeParam("A", "%bb%");
-        System.out.println("personList = " + personList);
+        personList = personRepository.queryByLastNameLikeAndEmailLike("x", "%bb%");
+        System.err.println("personList = " + personList);
 
         // 原生 SQL
-        long count = personRepository.getTotalCount();
-        System.out.println("count = " + count);
+        long count = personRepository.queryCntId();
+        System.err.println("count = " + count);
     }
 
     /**
@@ -120,7 +117,8 @@ public class SpringDataTest {
      */
     @Test
     public void testModifying() {
-        personService.updatePersonEmail("mmmm@ljh.com", 1);
+        int affectedRows = personService.updateEmailById("mm@ljh.com", 1);
+        System.err.println("affectedRows = " + affectedRows);
     }
 
     /**
@@ -128,8 +126,11 @@ public class SpringDataTest {
      */
     @Test
     public void testCurdRepository() {
-        List<Person> personList = new ArrayList<>();
+        // 删除所有
+        personRepository.deleteAll();
 
+        // 批量保存
+        List<Person> personList = new ArrayList<>();
         for (int i = 'a'; i <= 'z'; i++) {
             Person person = new Person();
             person.setAddressId(i + 1);
@@ -139,8 +140,7 @@ public class SpringDataTest {
 
             personList.add(person);
         }
-
-        personService.savePerson(personList);
+        personService.saveAll(personList);
     }
 
     /**
@@ -157,11 +157,11 @@ public class SpringDataTest {
         // Pageable 接口通常使用其实现类 PageRequest，其中封装了需要分页的信息
         Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
         Page<Person> page = personRepository.findAll(pageable);
-        System.out.println("总记录数：" + page.getTotalElements());
-        System.out.println("总页数：" + page.getTotalPages());
-        System.out.println("当前第几页：" + (page.getNumber() + 1));
-        System.out.println("当前页面的 List：" + page.getContent());
-        System.out.println("当前页面的 记录数：" + page.getNumberOfElements());
+        System.err.println("总记录数：" + page.getTotalElements());
+        System.err.println("总页数：" + page.getTotalPages());
+        System.err.println("当前第几页：" + (page.getNumber() + 1));
+        System.err.println("当前页面的 List：" + page.getContent());
+        System.err.println("当前页面的 记录数：" + page.getNumberOfElements());
     }
 
     /**
@@ -172,13 +172,17 @@ public class SpringDataTest {
         Person person = new Person();
         person.setBirth(new Date());
         person.setEmail("XYZ@ljh.com");
-//        person.setEmail("xyz@ljh.com");
         person.setLastName("xyz");
-//        person.setId(27);
 
-        // saveAndFlush 不传 id 则创建，否则为更新
+        // person 主键为空，所以为 INSERT 语句
         Person person2 = personRepository.saveAndFlush(person);
-        System.out.println(person == person2);
+        System.err.println(person == person2);  // true
+
+        // person 主键不为空，所以为 UPDATE 语句
+        person2.setEmail("xyz@ljh.com");
+        person2.setId(27);
+        Person person3 = personRepository.saveAndFlush(person2);
+        System.err.println(person2 == person3); // false
     }
 
     /**
@@ -212,15 +216,15 @@ public class SpringDataTest {
         };
 
         Page<Person> page = personRepository.findAll(specification, pageable);
-        System.out.println("总记录数：" + page.getTotalElements());
-        System.out.println("总页数：" + page.getTotalPages());
-        System.out.println("当前第几页：" + (page.getNumber() + 1));
-        System.out.println("当前页面的 List：" + page.getContent());
-        System.out.println("当前页面的 记录数：" + page.getNumberOfElements());
+        System.err.println("总记录数：" + page.getTotalElements());
+        System.err.println("总页数：" + page.getTotalPages());
+        System.err.println("当前第几页：" + (page.getNumber() + 1));
+        System.err.println("当前页面的 List：" + page.getContent());
+        System.err.println("当前页面的 记录数：" + page.getNumberOfElements());
     }
 
     /**
-     * 测试 为一个 Repository 添加自定义方法
+     * 测试 为 Repository 添加自定义方法
      */
     @Test
     public void testCustomRepositoryMethod() {

@@ -24,13 +24,13 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    @Transactional
-    public void updatePersonEmail(String email, Integer id) {
-        personRepository.updatePersonEmail(email, id);
+    //    @Transactional
+    public int updateEmailById(String email, Integer id) {
+        return personRepository.updatePersonEmail(email, id);
     }
 
     @Transactional
-    public void savePerson(List<Person> personList) {
+    public void saveAll(List<Person> personList) {
         personRepository.saveAll(personList);
     }
 }
