@@ -37,7 +37,7 @@ public class UserController {
     @PostMapping("addByJson")
     public void addByJson(User user, HttpServletResponse response) {
         response.setContentType("application/json");
-        try (PrintWriter writer = response.getWriter()){
+        try (PrintWriter writer = response.getWriter()) {
             writer.write(new Gson().toJson(user));
         } catch (IOException e) {
             e.printStackTrace();

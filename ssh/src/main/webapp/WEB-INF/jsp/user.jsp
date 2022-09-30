@@ -21,7 +21,7 @@
         <label for="age">年龄：</label>
         <input id="age" type="text" name="age">
         <br/>
-        <input type="button" value="add" onclick="addByFrom()">
+        <input type="button" value="addByForm" onclick="addByFrom()">
     </form>
     <script>
         function addByFrom () {
@@ -38,7 +38,7 @@
     <label for="age2">年龄：</label>
     <input id="age2" type="text" name="age">
     <br/>
-    <input id="add2" type="button" value="add">
+    <input id="add2" type="button" value="addByJson">
     <script>
         $(function () {
             $("#add2").click(function () {

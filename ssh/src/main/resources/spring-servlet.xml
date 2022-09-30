@@ -19,7 +19,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- 访问静态资源 -->
+    <!-- 静态资源 -->
     <mvc:resources mapping="/**" location="classpath:static/" cache-period="900"/>
 
     <!-- 文件上传 -->

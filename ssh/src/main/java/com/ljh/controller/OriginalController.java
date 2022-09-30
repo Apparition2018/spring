@@ -10,6 +10,8 @@ import java.util.Map;
 
 /**
  * OriginalController
+ * 继承 org.springframework.web.servlet.mvc.Controller，一个 Controller 只能写一个方法
+ * http://localhost:8080/ori
  *
  * @author ljh
  * created on 2022/4/2 11:46
