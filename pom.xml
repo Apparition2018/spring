@@ -19,10 +19,6 @@
         <module>spring-ioc</module>
         <!-- 7001：SpringMVC 数据绑定入门 -->
         <module>spring-data-binding</module>
-        <!-- 7002：Spring Data 教程 -->
-        <module>spring-data</module>
-        <!-- 7003：Spring + SpringMVC + Hibernate -->
-        <module>ssh</module>
     </modules>
 
     <properties>
@@ -32,7 +28,6 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-data-jpa.version>2.7.3</spring-data-jpa.version>
         <commons-fileupload.version>1.4</commons-fileupload.version>
-        <commons-io.version>2.11.0</commons-io.version>
     </properties>
 
     <dependencies>
