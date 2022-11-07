@@ -17,5 +17,4 @@ public abstract class HumanWithCar implements Human {
     }
 
     public abstract void goHome();
-
 }

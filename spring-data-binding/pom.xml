@@ -13,14 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>${tomcat.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <artifactId>tomcat-jsp-api</artifactId>
         </dependency>
     </dependencies>
-
 </project>

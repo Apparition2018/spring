@@ -8,11 +8,11 @@ package com.ljh.xml.my.ioc.car;
  */
 public interface Car {
 
-    public void start();
+    void start();
 
-    public void turnLeft();
+    void turnLeft();
 
-    public void turnRight();
+    void turnRight();
 
-    public void stop();
+    void stop();
 }

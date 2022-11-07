@@ -47,5 +47,4 @@ public class TestBean implements InitializingBean, DisposableBean {
     public void onDestroy2() {
         System.out.println("TestBean.onDestroy2");
     }
-
 }

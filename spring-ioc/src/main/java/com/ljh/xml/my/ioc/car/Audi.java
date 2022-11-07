@@ -17,11 +17,11 @@ public class Audi implements Car {
     }
 
     public void turnRight() {
-        System.out.println("Audi.turnRight");;
+        System.out.println("Audi.turnRight");
+        ;
     }
 
     public void stop() {
         System.out.println("Audi.stop");
     }
-
 }

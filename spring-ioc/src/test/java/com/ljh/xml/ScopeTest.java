@@ -27,7 +27,6 @@ public class ScopeTest {
     public void test() {
         Bean1 bean1_1 = context.getBean("bean1", Bean1.class);
         System.out.println("bean1_1 = " + bean1_1);
-        ;
         Bean1 bean1_2 = context.getBean("bean1", Bean1.class);
         System.out.println("bean1_2 = " + bean1_2);
         System.out.println("(bean1_1 == bean1_2) = " + (bean1_1 == bean1_2));

@@ -8,6 +8,5 @@ package com.ljh.xml.my.ioc.human;
  */
 public interface Human {
 
-    public void goHome();
-
+    void goHome();
 }

@@ -35,10 +35,15 @@ public class MyConfiguration {
      */
     @Bean
     @Order(56)
-    public String string1() { return "333"; }
+    public String string1() {
+        return "333";
+    }
+
     @Bean
     @Order(28)
-    public String string2() { return "444"; }
+    public String string2() {
+        return "444";
+    }
 
     /**
      * 注入 map
@@ -57,8 +62,12 @@ public class MyConfiguration {
      * 优先级较高
      */
     @Bean("int1")
-    public Integer integer1() { return 333; }
-    @Bean("int2")
-    public Integer integer2() { return 444; }
+    public Integer integer1() {
+        return 333;
+    }
 
+    @Bean("int2")
+    public Integer integer2() {
+        return 444;
+    }
 }

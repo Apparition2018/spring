@@ -25,11 +25,12 @@ public class TestConfiguration {
 
     /* 自定义作用域 */
     @Bean
-    public MyScope myScope() {
+    public static MyScope myScope() {
         return new MyScope();
     }
+
     @Bean
-    public CustomScopeConfigurer customScopeConfigurer() {
+    public static CustomScopeConfigurer customScopeConfigurer() {
         CustomScopeConfigurer configurer = new CustomScopeConfigurer();
         configurer.addScope("myScope", myScope());
         return configurer;

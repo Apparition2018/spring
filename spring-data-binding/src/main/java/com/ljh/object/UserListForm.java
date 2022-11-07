@@ -1,5 +1,8 @@
 package com.ljh.object;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 /**
@@ -8,22 +11,9 @@ import java.util.List;
  * @author ljh
  * created on 2019/10/28 17:09
  */
+@Getter
+@Setter
 public class UserListForm {
 
     private List<User> users;
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "UserListForm{" +
-                "users=" + users +
-                '}';
-    }
 }

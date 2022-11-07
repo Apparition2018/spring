@@ -1,5 +1,8 @@
 package com.ljh.object;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -9,6 +12,8 @@ import java.util.Set;
  * @author ljh
  * created on 2019/10/28 17:30
  */
+@Getter
+@Setter
 public class UserSetForm {
 
     private Set<User> users;

@@ -179,5 +179,4 @@ public class TestController {
     public String subjectDelete(@PathVariable("subjectId") String subjectId) {
         return "this is a delete method, subjectId: " + subjectId;
     }
-
 }
