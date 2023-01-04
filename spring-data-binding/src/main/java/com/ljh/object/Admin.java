@@ -16,7 +16,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Setter
 @XmlRootElement(name = "admin")
 public class Admin {
-
     @XmlElement(name = "name")
     private String name;
     @XmlElement(name = "age")

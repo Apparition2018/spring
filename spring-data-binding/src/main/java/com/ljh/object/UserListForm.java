@@ -14,6 +14,5 @@ import java.util.List;
 @Getter
 @Setter
 public class UserListForm {
-
     private List<User> users;
 }

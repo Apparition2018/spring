@@ -14,6 +14,5 @@ import java.util.Map;
 @Getter
 @Setter
 public class UserMapForm {
-
     private Map<String, User> users;
 }

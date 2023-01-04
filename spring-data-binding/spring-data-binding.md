@@ -6,10 +6,10 @@
 | @PathVariable  | 请求路径占位符，便于 RESTFul API                            |
 | @RequestHeader | 请求头                                               |
 | @CookieValue   | Cookie                                            |
-| @InitBinder    | 1.相同属性名<br/>2. 类型转换                               |
+| @InitBinder    | 初始化 WebDataBinder                                 |
 ---
 ## 自定义类型转换器
-- PropertyEditor
-- Formatter
-- Converter
+- [PropertyEditor](src/main/java/com/ljh/common/MyPropertyEditor.java)
+- [Formatter](src/main/java/com/ljh/common/MyDateFormatter.java)
+- [Converter](src/main/java/com/ljh/common/MyDateConverter.java)
 ---

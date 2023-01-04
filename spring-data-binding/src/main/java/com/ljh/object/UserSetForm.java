@@ -15,7 +15,6 @@ import java.util.Set;
 @Getter
 @Setter
 public class UserSetForm {
-
     private Set<User> users;
 
     public UserSetForm() {
