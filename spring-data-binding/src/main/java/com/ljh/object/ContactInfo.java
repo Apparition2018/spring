@@ -1,7 +1,6 @@
 package com.ljh.object;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  * ContactInfo
@@ -9,8 +8,7 @@ import lombok.Setter;
  * @author ljh
  * created on 2019/10/28 17:00
  */
-@Getter
-@Setter
+@Data
 public class ContactInfo {
     private String phone;
     private String address;

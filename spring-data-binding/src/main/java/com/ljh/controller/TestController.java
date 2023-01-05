@@ -47,7 +47,7 @@ public class TestController {
 
     // http://localhost:7001/object.do?name=Tom&age=10
     // http://localhost:7001/object.do?name=Tom&age=10&contactInfo.phone=10086
-    // http://localhost:7001/object.do?user.name=Tom&admin.name=Lucy&age=10
+    // http://localhost:7001/object.do?user.name=Tom&user.password=123&admin.name=Lucy&age=10
     @RequestMapping(value = "object.do")
     @ResponseBody
     public String object(User user, Admin admin) {
@@ -57,6 +57,7 @@ public class TestController {
     @InitBinder("user")
     public void initUser(WebDataBinder binder) {
         binder.setFieldDefaultPrefix("user.");
+        binder.setDisallowedFields("password");
     }
 
     @InitBinder("admin")

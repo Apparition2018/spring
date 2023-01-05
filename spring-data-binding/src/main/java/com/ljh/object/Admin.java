@@ -1,7 +1,6 @@
 package com.ljh.object;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,8 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author ljh
  * created on 2019/10/28 17:03
  */
-@Getter
-@Setter
+@Data
 @XmlRootElement(name = "admin")
 public class Admin {
     @XmlElement(name = "name")

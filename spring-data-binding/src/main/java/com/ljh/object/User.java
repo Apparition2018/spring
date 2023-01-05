@@ -1,8 +1,6 @@
 package com.ljh.object;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  * User
@@ -10,11 +8,10 @@ import lombok.Setter;
  * @author ljh
  * created on 2019/10/28 16:57
  */
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 public class User {
     private String name;
+    private String password;
     private Integer age;
     private ContactInfo contactInfo;
 }
